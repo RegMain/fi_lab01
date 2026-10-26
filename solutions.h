@@ -6,6 +6,6 @@ union f2i {
   uint32_t i;
 };
 
-void problem_nine();
+uint32_t problem_nine(uint32_t a, uint32_t b);
 
-void problem_twenty_three();
+union f2i problem_twenty_three(union f2i f2i);

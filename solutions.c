@@ -1,10 +1,8 @@
 #include <stdio.h>
+#include <stdint.h>
 #include "solutions.h"
 
-void problem_nine() {
-  uint32_t a, b;
-  printf("Task No. 9: Input two integers\n");
-  scanf("%d %d", &a, &b);
+uint32_t problem_nine(uint32_t a, uint32_t b) {
   uint32_t c = 0;
   uint32_t carry = 0;
   uint32_t mult = 1;
@@ -16,13 +14,10 @@ void problem_nine() {
     b /= 3;
   }
   c = mult * carry + c;
-  printf("%d\n", c);
+  return c;
 }
 
-void problem_twenty_three() {
-  union f2i f2i;
-  printf("Task No. 23: Input one float\n");
-  scanf("%f", &f2i.f);
+union f2i problem_twenty_three(union f2i f2i) {
   uint32_t i = f2i.i;
   uint32_t exp = (i >> 23) & (((uint32_t)1 << 8) - 1);
   uint32_t sign = i >> 31;
@@ -45,5 +40,5 @@ void problem_twenty_three() {
     }
   }
   f2i.i = (((sign << 8) | exp) << 23) | num;
-  printf("%.12e\n", f2i.f);
+  return f2i;
 }
